@@ -1,0 +1,63 @@
+
+//Media for devices
+ @media(max-width:767px){
+   .btn-login,.btn-signup{width: 49%;}
+   .home{margin-right:0px;}
+ }
+ @media(min-width:768px){
+  .btn-login,.btn-signup{width: 100px;}
+  .home{margin-right:10px;}
+  
+ }
+
+ body{
+  font-size: 15px;
+  height: 100vh;
+  background-color: #f7f7f7;
+  // background-image: url('../images/site-background-1.jpg');
+ }
+
+ //CSS FOR NAVBAR...
+
+.bg-nav{
+  background-color:#fff;
+}
+.nav-shadow{
+  -webkit-box-shadow: 2px 10px 6px -4px rgba(0,0,0,0.41);
+  -moz-box-shadow: 2px 10px 6px -4px rgba(0,0,0,0.41);
+  box-shadow: 2px 10px 6px -4px rgba(0,0,0,0.41);
+}
+// .btn-login,.btn-signup{width: 120px;}
+.btn-login
+{
+  margin-right: 5px;
+  background-color: #ffffff;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+}
+.btn-signup{background-color: #ff7555;}
+
+//CSS FOR BACKGROUND
+// @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+// .bg{background: url() no-repeat; width: 100%; height: 100%;}
+
+.navbar-hover :hover,
+.nav-menu-active{
+  border-bottom: 5px solid #ff7555;
+  padding-bottom: 3px;
+}
+.navbar-shadow{
+  -webkit-box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+  -moz-box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+}
+.form-container{border: 0px solid; padding: 60px 50px;
+  -webkit-box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+  -moz-box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%);
+}
+.submit-btn{width: 100%;}
+.new_user{color: blue;}
+.login_text{font-size: 18px;}
+
+// linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),

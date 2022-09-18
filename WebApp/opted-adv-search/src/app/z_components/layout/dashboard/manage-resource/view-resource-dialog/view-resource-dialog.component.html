@@ -1,0 +1,80 @@
+<!-- <h3 mat-dialog-title>Resource Details</h3> -->
+<div mat-dialog-actions class="d-flex justify-content-between">
+  <p class="fs-3 fw-bold">Resource Details</p>
+  <button mat-button (click)="close()" class="close-button">Close</button>
+</div>
+<div mat-dialog-content class="popup-height">
+  <form [formGroup]="dialogForm">
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Country Name : </label>
+      <label>{{rowData.country_name}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Region : </label>
+      <label>{{rowData.region}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Party Name :</label>
+      <label>{{rowData.parties}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Text Category : </label>
+      <label>{{rowData.text_category}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Source Name : </label>
+      <label>{{rowData.source_name}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Source Link : </label>
+      <p>{{rowData.source_link}}</p>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Start Year :</label>
+      <label>{{rowData.start_year}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">End Year :</label>
+      <label>{{rowData.end_year}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Description : </label>
+      <label>{{rowData.description}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Language : </label>
+      <label>{{rowData.language}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Type : </label>
+      <label>{{rowData.type}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Sub Type : </label>
+      <label>{{rowData.subtype}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">DOI : </label>
+      <label>{{rowData.doi}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">General Concept : </label>
+      <label>{{rowData.general_concept}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Programming Language : </label>
+      <label>{{rowData.programming_language}}</label>
+    </div>
+    <div class="form-group mb-2">
+      <label class="mb-2 fw-bold">Comment : </label>
+      <input type="text" class="form-control" formControlName="comment">
+      <small class="form-text text-muted" *ngIf="commentTextError">Please write a remark</small>
+    </div>
+  
+
+<div class="modal-footer justify-content-between">
+  <button type="submit" class="btn btn-danger modal-button margin-right modal-button" (click)="rejectRequest()">Reject</button>
+  <button type="submit" class="btn btn-success modal-button modal-button" (click)="ApproveRequest()">Approve</button>
+</div>
+</form>
+</div>

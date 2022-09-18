@@ -1,0 +1,147 @@
+<div class="container-fluid bg mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+
+      <nav class="multi-steps">
+        <ul class="pagination step-list justify-content-center">
+          <li class="page-item" *ngFor="let num of [1, 2, 3]" (click)="changeStep(num)">
+            <span class="page-link-btn page-link"
+              [ngClass]="{'active': this.step === num}">{{num}}</span>
+              <div [ngClass]="{ 'page-space' : num < lastStep }"></div>
+          </li>
+        </ul>
+      </nav>
+
+      <form class="form-container add-resource-form" [formGroup]="addResource">
+        <h4 class="text-dark text-wrap login_text">ADD RESOURCES</h4>
+        <div *ngIf="step == 1">
+          <div class="form-group mb-3">
+            <label class="mb-2">Source Type</label>
+            <!--DB DATA-->
+            <select class="form-control" formControlName="type">
+              <option value="">Select Type</option>
+              <option *ngFor="let typeOfData of type" value="{{typeOfData}}">{{typeOfData}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="type" placeholder="Enter Type of Data">       -->
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Sub Type</label>
+            <input type="name" class="form-control" formControlName="subType" placeholder="Enter Sub Type">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">DOI</label>
+            <input type="name" class="form-control" formControlName="doi" placeholder="Enter DOI">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">General Concept</label>
+            <input type="name" class="form-control" formControlName="generalConcept"
+              placeholder="Enter General Concept">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Programming Language</label>
+            <input type="name" class="form-control" formControlName="programText" placeholder="Enter Programming Text">
+          </div>
+        </div>
+     
+
+        <div *ngIf="step == 2">
+          <div class="form-group mb-3">
+            <label class="mb-2">Source Name</label>
+            <input type="name" class="form-control" formControlName="sourceName" placeholder="Enter Source Name">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Source Link</label>
+            <input type="name" class="form-control" formControlName="sourceLink" placeholder="Enter Source Link">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Start Year</label>
+            <select class="form-control" formControlName="startYear">
+              <option value="">Select Start Year</option>
+              <option *ngFor="let startyear of year" value="{{startyear}}">{{startyear}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="startYear" placeholder="Enter Start Year">       -->
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">End Year</label>
+            <select class="form-control" formControlName="endYear">
+              <option value="">Select End Year</option>
+              <option *ngFor="let endyear of year" value="{{endyear}}">{{endyear}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="endYear" placeholder="Enter End Year">       -->
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Description</label>
+            <!--CHARACTER LIMIT 500-->
+            <input type="name" class="form-control" formControlName="description" placeholder="Enter Description">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Language</label>
+            <!--DB DATA-->
+            <select class="form-control" formControlName="language">
+              <option value="">Select Language</option>
+              <option *ngFor="let languageList of languageLookup" value="{{languageList}}">{{languageList}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="language" placeholder="Enter Language">       -->
+          </div>
+        </div>
+
+        <div *ngIf="step == 3">
+          <div class="form-group mb-3">
+            <label class="mb-2">Country Name</label>
+            <select class="form-control" formControlName="countryName">
+              <option value="">Select Country</option>
+              <option *ngFor="let countryList of countryLookup" value="{{countryList}}">{{countryList}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="countryName" placeholder="Enter Country Name">       -->
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Region</label>
+            <select class="form-control" formControlName="region">
+              <option value="">Select Region</option>
+              <option *ngFor="let regionList of region" value="{{regionList}}">{{regionList}}</option>
+            </select>
+            <!-- <input type="name" class="form-control" formControlName="region" placeholder="Enter Region">       -->
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Party Name</label>
+            <input type="name" class="form-control" formControlName="party" placeholder="Enter Party Name">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Text Category</label>
+            <input type="name" class="form-control" formControlName="textCategory" placeholder="Enter Text Category">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Text Category</label>
+            <input type="name" class="form-control" formControlName="textCategory" placeholder="Enter Text Category">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-2">Text Category</label>
+            <input type="name" class="form-control" formControlName="textCategory" placeholder="Enter Text Category">
+          </div>
+        </div>
+
+
+        <div class="action-container">
+          <button type="button" *ngIf="step != 1" class="btn previous-btn" (click)="previous()"><i class="fa fa-arrow-left"></i>  Previous</button>
+          <button type="button" *ngIf="step != lastStep" class="btn next-btn" (click)="next()">Next  <i class="fa fa-arrow-right"></i></button>
+          <button type="button" *ngIf="step == lastStep" class="btn btn-success save-btn" (click)="addResources()"><i class="fa fa-save"> </i>  Save</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- <div class="container searchResultGrid">
+    <ag-grid-angular
+        style=: 100%; height: 100%;"
+        class="ag-theme-balham"
+        [pagination]="true"
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs"
+        [modules]="modules"
+        [paginationPageSize]="10">
+    </ag-grid-angular>
+</div> -->

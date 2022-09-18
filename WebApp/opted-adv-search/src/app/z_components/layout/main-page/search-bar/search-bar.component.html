@@ -1,0 +1,30 @@
+<div class="container-fluid mx-0 search-bar">
+  <form [formGroup]="dropdownForm" class="search d-flex">
+    <div class="search-data-fields">
+      <div class="col-4">
+        <mat-select formControlName="searchField" class="form-control border-0 select-field" (selectionChange)="selected()">
+          <!-- <option value="">-- Select field --</option> -->
+          <mat-option value="country.name">Country</mat-option>
+          <mat-option value="region">Region</mat-option>
+          <mat-option value="start.year">Start year</mat-option>
+          <mat-option value="end.year">End year</mat-option>
+        </mat-select>
+      </div>
+      <div class="col-4">
+        <input type="text" [placeholder]="getPlaceHolder()  | titlecase" matInput [formControl]="myControl" [matAutocomplete]="auto"
+          class="form-control multiFieldField">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option | titlecase}}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+      <div class="col-6">
+        <input type="text" placeholder="Search Everything..." formControlName="searchText" class="form-control txt-search-everything">
+      </div>
+    </div>
+    <div class="search-data-div">
+      <button class="rounded-pill text-white btn btn-primary search-data-btn" (click)="searchData()">Search</button>
+    </div>
+  </form>
+</div>

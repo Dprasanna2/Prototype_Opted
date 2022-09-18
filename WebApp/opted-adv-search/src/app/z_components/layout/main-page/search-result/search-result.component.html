@@ -1,0 +1,36 @@
+<div class="search-result-container container" *ngIf="isDataSearched && resultData.length == 0">
+  <h6 class="search-result-notFound text-danger"> 
+    No records found.
+  </h6>
+</div>
+
+<div class="search-result-container container" *ngIf="pagination.totalRecordsCount > 0">
+  <h6 class="search-result-count text-end"> 
+    Found {{pagination.totalRecordsCount}} records.
+  </h6>
+
+  <app-pagination [pagination]="pagination" (pageChange)="changePage($event)"  *ngIf="pagination.totalPages > 1">
+  </app-pagination>
+
+  <div class="search-result-content row">
+    <div class="search-result-item col-12" *ngFor="let data of resultData; let i = index;">
+      <div class="card-text"><span><b>Source: {{data['source_name']}}</b></span></div>
+      <div class="card-text"><span><b>Description: </b>{{data['description']}}</span></div>
+      <div class="card-text"><span><b>Countries: </b>{{data['country_name']}}</span></div>
+      <div class="card-text"><span><b>Regions: </b>{{data['region']}}</span></div>
+      <div class="card-text"><span><b>Year: </b>{{data['start_year']}} - {{data['end_year']}} </span></div>
+
+      <app-more-result-data *ngIf="data.showMoreData" [rowData] = "data"></app-more-result-data>
+      <a class="result-more-details-btn btn btn-link" (click)="data.showMoreData = !data.showMoreData">{{data.showMoreData ? '- less details' : '+ more details'}}</a>
+      
+      <div class="result-end-bar" *ngIf="pagination.pageSize-1 > i && resultData.length-1 !== i "></div>
+    </div>
+  </div>
+
+  <app-pagination [pagination]="pagination" (pageChange)="changePage($event)" *ngIf="pagination.totalPages > 1">
+  </app-pagination>
+
+</div>
+<div class="top-scroll-btn btn btn-link" (click)="scrollToTop()">
+  <i class="fa-solid fa-arrow-up"></i>
+</div>

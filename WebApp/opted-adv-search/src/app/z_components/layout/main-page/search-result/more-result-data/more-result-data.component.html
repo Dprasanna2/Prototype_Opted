@@ -1,0 +1,14 @@
+<!-- <div class="card card-body"> -->
+  <div class="card-text">
+    <span class=""><b>Link: </b> </span>
+    <a *ngIf="isValidLink(rowData['source_link'])" [href]="rowData['source_link']" target="_blank" class="search-result-link">{{rowData['source_link']}}</a>
+    <span *ngIf="!isValidLink(rowData['source_link'])">NA</span>
+  </div>
+  <div class="card-text">
+    <span class=""><b>DOI: </b></span>
+    <a *ngIf="isValidLink(rowData['doi'])" [href]="rowData['doi']" target="_blank" class="search-result-link">{{rowData['doi']}}</a>
+    <span *ngIf="!isValidLink(rowData['doi'])">NA</span>
+  </div>
+  <div class="card-text"><span><b>General concept: </b>{{rowData['general_concept']}}</span></div>
+  <div class="card-text"><span><b>Language: </b>{{rowData['language']}}</span></div>
+<!-- </div> -->
